@@ -3,7 +3,7 @@ class UseresController < ApplicationController
 		
 	end
 	def index
-    	@uset = User.all
+    	@user = User.all
   	end
 	def create
 		@user = User.new(user_params);
@@ -15,7 +15,7 @@ class UseresController < ApplicationController
 		end
 	end
 	def show
-		@user= User.find(params[:id])
+		@user = User.find(params[:id])
 	end
 private 
 	def user_params
