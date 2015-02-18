@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  team: 
+  team: false
 
 two:
   name: MyString
-  team: 
+  team: false
