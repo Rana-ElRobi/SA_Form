@@ -1,6 +1,5 @@
-class UseresController < ApplicationController
+class UsersController < ApplicationController
 	def new
-		
 	end
 	def index
     	@uset = User.all
@@ -17,9 +16,8 @@ class UseresController < ApplicationController
 	def show
 		@user= User.find(params[:id])
 	end
-private 
+private
 	def user_params
 		params.require(:user).permit(:name,:team)
-		
 	end
 end
