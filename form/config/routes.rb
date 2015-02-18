@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :users
   root 'welcome#index'
-  user GET /users/:id(.:format)  users#show
+  user GET /users(.:format)  #show
+  user GET /users/(.:format)  #INDEX
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

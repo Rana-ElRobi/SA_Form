@@ -2,11 +2,17 @@ class UseresController < ApplicationController
 	def new
 		
 	end
+	def index
+    	@uset = User.all
+  	end
 	def create
 		@user = User.new(user_params);
 
-		@user.save
-		redirect_to @user
+		if @user.save
+			redirect_to @user
+		else
+			render 'new'
+		end
 	end
 	def show
 		@user= User.find(params[:id])
