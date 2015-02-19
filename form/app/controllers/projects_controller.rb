@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 	def index
 		@projects = Project.all
+		@users = User.all
 	end
 
 	def new
@@ -17,7 +18,21 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def subscribe
+		p = Project.find(params[:id])
+		u = User.find_by(name: params[:name],pwd: params[:pwd])
+
+		if !u.blank? && p.check_availability && (u.project.blank?)
+			u.project = p
+			u.save
+			redirect_to p, notice: "Subscribed successfully"
+		else
+			redirect_to project_path(p), notice: "password is not correct or project is closed"
+		end
+	end
+
 	def show
+		@users = User.all
 		@project= Project.find(params[:id])
 	end
 

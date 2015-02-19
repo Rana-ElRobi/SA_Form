@@ -4,7 +4,29 @@
 </p>
 
 <p>
-  <strong>Team:</strong>
-  <%= @project.taken %>
+<strong>Subscribers:</strong>
+  <ul>
+    <% @project.users.each do |u| %>
+    <li><%= u.name %></li>
+    <% end %>
+  </ul>
 </p>
+
+<% if @project.check_availability %>
+<p>
+  <form action="/projects/<%= @project.id %>/subscribe" method="get">
+    <label for="">Name</label>
+    <select name="name" id="">
+      <% @users.each do |u| %>
+      <option value="<%= u.name %>"><%= u.name %></option>
+      <% end %>
+    </select>
+    <br>
+    <label for="">Password</label>
+    <input name="pwd" type="password">
+    <br>
+    <input type="Submit" value="Subscribe">
+  </form>
+</p>
+<% end %>
 <%= link_to 'Back', projects_path %>

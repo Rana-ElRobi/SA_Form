@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218202345) do
+ActiveRecord::Schema.define(version: 20150219000416) do
 
   create_table "projects", force: true do |t|
     t.string   "name",       default: "",    null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150218202345) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+    t.string   "pwd",        default: "",    null: false
   end
 
   add_index "users", ["project_id"], name: "index_users_on_project_id"
