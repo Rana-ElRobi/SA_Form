@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 		p = Project.find(params[:id])
 		u = User.find_by(name: params[:name],pwd: params[:pwd])
 
-		if !u.blank? && p.check_availability && (u.project.blank?)
+		if !u.blank? && p.check_availability
 			u.project = p
 			u.save
 			redirect_to p, notice: "Subscribed successfully"
