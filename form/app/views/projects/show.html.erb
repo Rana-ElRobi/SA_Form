@@ -2,7 +2,7 @@
   <strong>Name:</strong>
   <%= @project.name %>
 </p>
-
+<% unless @project.users.blank? %>
 <p>
 <strong>Subscribers:</strong>
   <ul>
@@ -11,20 +11,23 @@
     <% end %>
   </ul>
 </p>
-
+<% end %>
+<hr>
 <% if @project.check_availability %>
 <p>
   <form action="/projects/<%= @project.id %>/subscribe" method="get">
-    <label for="">Name</label>
+    <label for="">Name:</label><br>
     <select name="name" id="">
       <% @users.each do |u| %>
-      <option value="<%= u.name %>"><%= u.name %></option>
+        <% unless u.project == p %>
+        <option value="<%= u.name %>"><%= u.name %></option>
+        <% end %>
       <% end %>
     </select>
-    <br>
-    <label for="">Password</label>
+    <br><br>
+    <label for="">Password:</label><br>
     <input name="pwd" type="password">
-    <br>
+    <br><br>
     <input type="Submit" value="Subscribe">
   </form>
 </p>
