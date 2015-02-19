@@ -19,7 +19,7 @@
     <label for="">Name:</label><br>
     <select name="name" id="">
       <% @users.each do |u| %>
-        <% unless u.project == p %>
+        <% unless u.project == @project %>
         <option value="<%= u.name %>"><%= u.name %></option>
         <% end %>
       <% end %>
