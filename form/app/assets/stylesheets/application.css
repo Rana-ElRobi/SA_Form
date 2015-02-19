@@ -25,3 +25,5 @@ a.button {
   padding-right: 18px; /* sliding doors padding */
   text-decoration: none;
 }
+ *= require formtastic
+ *= require my_formtastic_changes
